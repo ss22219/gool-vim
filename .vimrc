@@ -26,10 +26,13 @@ let g:PowerLine_symbols="unicode"
 set encoding=utf8
 
 "keymap
-
+let g:mapleader=","
 "nerdtree
 map <F4> <Esc>:NERDTreeToggle<CR>
 
 "new tabpage
 map <F2> <Esc>:tabnew<CR>
 map <F3> <Esc>:tabclose<CR>
+
+"window
+nmap <Leader>c :close<CR>
