@@ -19,6 +19,9 @@ filetype plugin indent on    " required
 "vim setting
 set number
 syntax enable
+:set ts=4
+:set expandtab
+:%retab!
 
 "backgournd
 set background=dark
@@ -190,6 +193,7 @@ augroup omnisharp_commands
     "navigate down by method/property/field
     autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
 
+    autocmd FileType cs nnoremap <F12> :OmniSharpGotoDefinition<cr>
 augroup END
 
 
@@ -205,7 +209,7 @@ vnoremap <leader><space> :call OmniSharp#GetCodeActions('visual')<cr>
 
 " rename with dialog
 nnoremap <leader>nm :OmniSharpRename<cr>
-nnoremap <F2> :OmniSharpRename<cr>
+"nnoremap <F2> :OmniSharpRename<cr>
 " rename without dialog - with cursor on the symbol to rename... ':Rename newname'
 command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 
@@ -228,4 +232,4 @@ set hidden
 let g:OmniSharp_want_snippet=1
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
+let g:neocomplete#enable_insert_char_pre = 1
